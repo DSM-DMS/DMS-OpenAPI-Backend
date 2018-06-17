@@ -11,7 +11,9 @@ from flask import Response, abort, after_this_request, current_app, g, request, 
 from flask_jwt_extended import jwt_required, get_jwt_identity
 from flask_restful import Resource
 
-from app.models.account import AccessTokenModel, AdminModel, StudentModel
+from app.models.account import AccessTokenModel, StudentModel
+
+from werkzeug.exceptions import HTTPException
 
 
 def auth_required(model):
@@ -163,12 +165,10 @@ class Router:
         from .school_data import meal
         app.register_blueprint(self.add_prefix(meal.api).blueprint)
 
-        from .account import alteration, auth, info, signup, social_auth
+        from .account import alteration, auth, info
         app.register_blueprint(self.add_prefix(alteration.api).blueprint)
         app.register_blueprint(self.add_prefix(auth.api).blueprint)
         app.register_blueprint(self.add_prefix(info.api).blueprint)
-        app.register_blueprint(self.add_prefix(signup.api).blueprint)
-        app.register_blueprint(self.add_prefix(social_auth.api).blueprint)
 
         from .apply import extension, goingout, stay
         app.register_blueprint(self.add_prefix(extension.api).blueprint)
