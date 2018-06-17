@@ -4,34 +4,6 @@ from uuid import uuid4
 from mongoengine import *
 
 
-class SignupWaitingModel(Document):
-    """
-    학생 회원가입을 위한 UUID-학생 정보 매핑 collection
-    """
-    meta = {
-        'collection': 'signup_waiting'
-    }
-
-    uuid = StringField(
-        primary_key=True,
-        min_length=4,
-        max_length=4
-    )
-    # 회원가입 시 사용할 UUID
-
-    name = StringField(
-        required=True
-    )
-    # 학생 이름
-
-    number = IntField(
-        required=True,
-        min_value=1101,
-        max_value=3421
-    )
-    # 학번
-
-
 class AccountBase(Document):
     """
     계정에 대한 상위 collection
@@ -58,9 +30,6 @@ class AccountBase(Document):
 
 
 class StudentModel(AccountBase):
-    """
-    학생 계정
-    """
     meta = {
         'collection': 'account_student'
     }
@@ -95,15 +64,6 @@ class StudentModel(AccountBase):
         default=0
     )
     # 벌점 교육 단계
-
-
-class AdminModel(AccountBase):
-    """
-    관리자 계정
-    """
-    meta = {
-        'collection': 'account_admin'
-    }
 
 
 class TokenModel(Document):
@@ -151,7 +111,7 @@ class TokenModel(Document):
 
 class AccessTokenModel(TokenModel):
     meta = {
-        'collection': 'access_token'
+        'collection': 'access_token_open_api'
     }
 
 
@@ -160,7 +120,7 @@ class RefreshTokenModel(TokenModel):
     JWT refresh token을 관리하기 위한 collection
     """
     meta = {
-        'collection': 'refresh_token'
+        'collection': 'refresh_token_open_api'
     }
 
     pw_snapshot = StringField(
