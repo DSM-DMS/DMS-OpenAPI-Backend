@@ -1,14 +1,11 @@
+from app.docs import jwt_header, secret_key_header
+
 STAY_GET = {
-    'tags': ['[Student] 신청'],
+    'tags': ['신청'],
     'description': '학생 자신의 잔류신청 정보를 조회합니다.',
     'parameters': [
-        {
-            'name': 'Authorization',
-            'description': 'JWT Token',
-            'in': 'header',
-            'type': 'str',
-            'required': True
-        }
+        jwt_header,
+        secret_key_header
     ],
     'responses': {
         '200': {
@@ -26,19 +23,14 @@ STAY_GET = {
 }
 
 STAY_POST = {
-    'tags': ['[Student] 신청'],
+    'tags': ['신청'],
     'description': '''잔류신청
     
     신청 가능 시간: 일요일 20:30 - 목요일 22:00
     ''',
     'parameters': [
-        {
-            'name': 'Authorization',
-            'description': 'JWT Token',
-            'in': 'header',
-            'type': 'str',
-            'required': True
-        },
+        jwt_header,
+        secret_key_header,
         {
             'name': 'value',
             'description': '''

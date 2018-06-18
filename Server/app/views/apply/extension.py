@@ -4,10 +4,10 @@ from flask import Blueprint, Response, abort, g, request, current_app
 from flask_restful import Api
 from flasgger import swag_from
 
-from app.docs.v2.student.apply.extension import *
+from app.docs.apply.extension import *
 from app.models.account import StudentModel
 from app.models.apply import ExtensionApply11Model, ExtensionApply12Model
-from app.views.v2 import BaseResource, auth_required, json_required
+from app.views import BaseResource, auth_required, json_required
 
 from utils.extension_meta import APPLY_START, APPLY_END_11, APPLY_END_12, MAPS
 

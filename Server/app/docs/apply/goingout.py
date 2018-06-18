@@ -1,14 +1,11 @@
+from app.docs import jwt_header, secret_key_header
+
 GOINGOUT_GET = {
-    'tags': ['[Student] 신청'],
+    'tags': ['신청'],
     'description': '학생 자신의 외출신청 정보를 조회합니다.',
     'parameters': [
-        {
-            'name': 'Authorization',
-            'description': 'JWT Token',
-            'in': 'header',
-            'type': 'str',
-            'required': True
-        }
+        jwt_header,
+        secret_key_header,
     ],
     'responses': {
         '200': {
@@ -30,20 +27,15 @@ GOINGOUT_GET = {
 }
 
 GOINGOUT_POST = {
-    'tags': ['[Student] 신청'],
+    'tags': ['신청'],
     'description': '''외출신청
     
     신청 가능 시간: 월요일 00:00 - 금요일 22:00
     금요귀가, 토요귀가 시 외출 신청이 불가능합니다.
     ''',
     'parameters': [
-        {
-            'name': 'Authorization',
-            'description': 'JWT Token',
-            'in': 'header',
-            'type': 'str',
-            'required': True
-        },
+        jwt_header,
+        secret_key_header,
         {
             'name': 'sat',
             'description': '토요일 외출 여부',

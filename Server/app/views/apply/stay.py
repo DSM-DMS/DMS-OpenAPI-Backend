@@ -4,10 +4,10 @@ from flask import Blueprint, Response, g, request, current_app
 from flask_restful import Api
 from flasgger import swag_from
 
-from app.docs.v2.student.apply.stay import *
+from app.docs.apply.stay import *
 from app.models.account import StudentModel
 from app.models.apply import StayApplyModel
-from app.views.v2 import BaseResource, auth_required, json_required
+from app.views import BaseResource, auth_required, json_required
 
 api = Api(Blueprint(__name__, __name__))
 api.prefix = '/student/apply/stay'
