@@ -1,16 +1,11 @@
-from app.docs.v2 import SAMPLE_ACCESS_TOKEN
+from app.docs import SAMPLE_ACCESS_TOKEN, jwt_header, secret_key_header
 
 REFRESH_GET = {
-    'tags': ['[Mixed] JWT 관련'],
+    'tags': ['JWT 관련'],
     'description': 'JWT Refresh Token을 이용해 Access Token을 새로 발급합니다.',
     'parameters': [
-        {
-            'name': 'Authorization',
-            'description': 'JWT Refresh Token(JWT ***)',
-            'in': 'header',
-            'type': 'str',
-            'required': True
-        }
+        jwt_header,
+        secret_key_header
     ],
     'responses': {
         '201': {

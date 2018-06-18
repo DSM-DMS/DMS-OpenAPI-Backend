@@ -1,14 +1,11 @@
+from app.docs import jwt_header, secret_key_header
+
 AUTH_CHECK_GET = {
-    'tags': ['[Mixed] JWT 관련'],
+    'tags': ['JWT 관련'],
     'description': '해당 Access Token이 유효한지(\'로그인되어 있음\'으로 표현할 수 있는지) 체크합니다.',
     'parameters': [
-        {
-            'name': 'Authorization',
-            'description': 'JWT Token(JWT ***)',
-            'in': 'header',
-            'type': 'str',
-            'required': True
-        },
+        jwt_header,
+        secret_key_header
     ],
     'responses': {
         '200': {
