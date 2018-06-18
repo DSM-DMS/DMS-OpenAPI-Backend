@@ -69,10 +69,6 @@ class Config:
                 'description': '학생 계정으로 접근 가능한 계정 관리 API'
             },
             {
-                'name': '소셜 계정',
-                'description': '학생 소셜 계정 관련 API'
-            },
-            {
                 'name': '신청',
                 'description': '학생 신청 관련 API'
             },

@@ -151,12 +151,7 @@ class Router:
     def init_app(self, app):
         from .jwt import checker, refresh
         app.register_blueprint(self.add_prefix(checker.api).blueprint)
-        app.register_blueprint(self.add_prefix(refresh.api).blueprint)
-
-        from .metadata import developers, links, version
-        app.register_blueprint(self.add_prefix(developers.api).blueprint)
-        app.register_blueprint(self.add_prefix(links.api).blueprint)
-        app.register_blueprint(self.add_prefix(version.api).blueprint)
+        app.register_blueprint(self.add_prefix(refresh.api).blueprint
 
         from .post import post, preview
         app.register_blueprint(self.add_prefix(post.api).blueprint)

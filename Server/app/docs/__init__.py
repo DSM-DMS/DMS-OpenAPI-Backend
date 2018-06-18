@@ -24,7 +24,7 @@ jwt_header = {
 }
 secret_key_header = {
     'name': 'DMS-OpenAPI-SecretKey',
-    'description': 'JWT Token(JWT ***)',
+    'description': 'JWT Token(DMS-Secret ***)',
     'in': 'header',
     'type': 'str',
     'required': True
