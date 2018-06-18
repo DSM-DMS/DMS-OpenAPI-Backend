@@ -1,14 +1,11 @@
+from app.docs import jwt_header, secret_key_header
+
 PREVIEW_GET = {
-    'tags': ['[Mixed] 게시글'],
+    'tags': ['게시글'],
     'description': '게시글 프리뷰를 조회합니다. 별도로 프리뷰로 설정된 게시글이 없으면 가장 최신 글을 불러옵니다.',
     'parameters': [
-        {
-            'name': 'category',
-            'description': '프리뷰를 조회할 게시글 카테고리(faq, notice, rule)',
-            'in': 'path',
-            'type': 'str',
-            'required': True
-        }
+        jwt_header,
+        secret_key_header
     ],
     'responses': {
         '200': {

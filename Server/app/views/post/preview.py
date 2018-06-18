@@ -2,9 +2,9 @@ from flask import Blueprint, Response
 from flask_restful import Api
 from flasgger import swag_from
 
-from app.docs.v2.mixed.post.preview import *
-from app.views.v2 import BaseResource
-from app.views.v2.admin.post import CATEGORY_MODEL_MAPPING
+from app.docs.post.preview import *
+from app.views import BaseResource
+from app.views.post import CATEGORY_MODEL_MAPPING
 
 api = Api(Blueprint(__name__, __name__))
 api.prefix = '/post-preview/<category>'

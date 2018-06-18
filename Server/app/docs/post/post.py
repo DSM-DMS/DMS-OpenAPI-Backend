@@ -1,16 +1,11 @@
-from app.docs.v2 import SAMPLE_OBJECT_IDS
+from app.docs import SAMPLE_OBJECT_IDS, jwt_header, secret_key_header
 
 POST_LIST_GET = {
-    'tags': ['[Mixed] 게시글'],
+    'tags': ['게시글'],
     'description': '게시글 리스트를 조회합니다.',
     'parameters': [
-        {
-            'name': 'category',
-            'description': '게시글 카테고리(faq, notice, rule)',
-            'in': 'path',
-            'type': 'str',
-            'required': True
-        }
+        jwt_header,
+        secret_key_header
     ],
     'responses': {
         '200': {
@@ -48,16 +43,11 @@ POST_LIST_GET = {
 }
 
 POST_ITEM_GET = {
-    'tags': ['[Mixed] 게시글'],
+    'tags': ['게시글'],
     'description': '특정 게시글의 내용을 조회합니다.',
     'parameters': [
-        {
-            'name': 'category',
-            'description': '게시글 카테고리(faq, notice, rule)',
-            'in': 'path',
-            'type': 'str',
-            'required': True
-        },
+        jwt_header,
+        secret_key_header,
         {
             'name': 'post_id',
             'description': '조회할 게시글의 ID',
